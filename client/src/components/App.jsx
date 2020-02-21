@@ -1,7 +1,8 @@
 import React    from 'react';
 import {Router} from "@reach/router";
 import Footballers   from './Footballers';
-import AddFootballer from './AddFootballer';
+import Footballer    from './Footballer';
+import AddFootball  from './AddFootball';
 
 class App extends React.Component {
 
@@ -9,8 +10,8 @@ class App extends React.Component {
     return (
       <Router>
         <Footballers   path='/' />
-        <Footballers   path='/Footballers/:FootballerID' />
-        <AddFootballer path='/add-Footballer/' />
+        <Footballer    path='/Footballer/:FootballerID' />
+        <AddFootball path='/add-Football/' />
       </Router>
     );
   }
