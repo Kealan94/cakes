@@ -3,7 +3,7 @@ import {Link}             from '@reach/router';
 import urlToCurrentDomain from '../lib/urlToCurrentDomain';
 import * as Config        from '../config.json'
 
-class Footballer extends React.Component {
+class AddFootballers extends React.Component {
 
   // #######################################################
   // # Local state
@@ -53,4 +53,4 @@ class Footballer extends React.Component {
 
 }
 
-export default Footballer;
+export default AddFootballers;

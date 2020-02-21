@@ -1,7 +1,6 @@
 import React    from 'react';
 import {Router} from "@reach/router";
 import Footballers   from './Footballers';
-import Footballer    from './Footballer';
 import AddFootballer from './AddFootballer';
 
 class App extends React.Component {
@@ -10,7 +9,7 @@ class App extends React.Component {
     return (
       <Router>
         <Footballers   path='/' />
-        <Footballer    path='/Footballer/:FootballerID' />
+        <Footballers   path='/Footballers/:FootballerID' />
         <AddFootballer path='/add-Footballer/' />
       </Router>
     );
