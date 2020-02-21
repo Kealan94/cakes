@@ -53,4 +53,4 @@ class Footballers extends React.Component {
 
 }
 
-export default Footballer;
+export default Footballers;

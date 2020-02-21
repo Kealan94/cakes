@@ -5,45 +5,45 @@ const Footballer   = require('../models/Footballer').Footballer;
 
 /**
  * Functionality for this route:
- *  C   POST    /Footballer/        Create a new Footballer
- *  R   GET     /Footballer         Gets an array of all Footballer
- *  R   GET     /Footballer/:id     Get a single Footballer, by ID
- *  U   PUT     /Footballer/:id     Update a single Footballer, by id
- *  D   DELETE  /Footballer/:id     Delete a single Footballer, by ID
+ *  C   POST    /Footballers/        Create a new Footballer
+ *  R   GET     /Footballers         Gets an array of all Footballers
+ *  R   GET     /Footballers/:id     Get a single Footballer, by ID
+ *  U   PUT     /Footballers/:id     Update a single Footballer, by id
+ *  D   DELETE  /Footballers/:id     Delete a single Footballer, by ID
  */
 
-// GET an array of all Footballer change
+// GET an array of all Footballers change
 router.get('/', (req, res) => {
     return mongoose
       .model('Footballer')
       .find({})
-      .then (Footballer => res.json(Footballer))
+      .then (footballers => res.json(footballers))
       .catch(err => res
         .status(500)
         .json({ok: false})
       );
   });
 
-  // GET a single Footballer by ID
+  // GET a single footballer by ID
 router.get('/:id([0-9a-fA-F]{24})', (req, res) => {
   return mongoose
     .model('Footballer')
     .findOne({_id: req.params.id})
-    .then (Footballer => res.json(Footballer))
+    .then (footballer => res.json(footballer))
     .catch(err => res
       .status(500)
       .json({ok: false})
     );
 });
 
-// POST Create a new Footballer
+// POST Create a new footballer
 router.post('/', (req, res) => {
   return new Footballer({
     title     : req.body.title,
   })
   .save()
-  .then (Footballer => Footballer.populate(Footballer, {path: '_id'}))
-  .then (Footballer => res.json(Footballer))
+  .then (footballer => Footballer.populate(footballer, {path: '_id'}))
+  .then (footballer => res.json(footballer))
   .catch(err => res
     .status(400)
     .json({ok: false, error: err.message})
@@ -61,7 +61,7 @@ router.delete('/:id([0-9a-fA-F]{24})', (req, res) => {
     );
 });
 
-// PUT Update a Footballer
+// PUT Update a footballer
 router.put('/:id([0-9a-fA-F]{24})', (req, res) => {
   return Footballer
     .findOneAndUpdate(
@@ -71,8 +71,8 @@ router.put('/:id([0-9a-fA-F]{24})', (req, res) => {
       }},
       {new: true}
     )
-    .then (Footballer => Footballer.populate(Footballer, {path: '_id'}))
-    .then (Footballer => res.json(Footballer))
+    .then (footballer => Footballer.populate(footballer, {path: '_id'}))
+    .then (footballer => res.json(footballer))
     .catch(err => res
       .status(500)
       .json({ok: false})
