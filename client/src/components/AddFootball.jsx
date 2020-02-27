@@ -75,7 +75,8 @@ class AddFootball extends React.Component {
     e.preventDefault();
 
     // Perform a POST call for the new data
-    fetch(urlToCurrentDomain(`${Config.cakesAPI}`), {
+    fetch(urlToCurrentDomain(`${Config.FootballersAPI}`), {
+     
       method : 'POST',
       headers: {
         'Content-Type': 'application/json'
